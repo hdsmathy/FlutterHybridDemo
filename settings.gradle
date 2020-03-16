@@ -1,2 +1,12 @@
 include ':app'
 rootProject.name='FlutterHybirdDemo'
+setBinding(new Binding([gradle: this]))                                 // new
+evaluate(new File(                                                      // new
+        settingsDir.parentFile,                                               // new
+        //这里会遇到坑 需要在前面加上你的工程名称 比如我的工程名称 FlutterHybridDemo
+        //'FlutterHybridDemo/flutter_module/.android/include_flutter.groovy'
+        'FlutterHybirdDemo/niko_module/.android/include_flutter.groovy'            // new
+))
+
+
+include ':niko_module'

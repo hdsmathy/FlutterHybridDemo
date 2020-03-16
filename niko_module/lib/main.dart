@@ -1,6 +1,41 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(_choiceWidget(window.defaultRouteName));
+
+Widget _choiceWidget(String route) {
+
+  switch(route){
+    case "myapp":
+      return MyApp();
+      break;
+    case "route":
+      return RoutePage();
+      break;
+    default:
+      return MyApp();
+      break;
+  }
+}
+
+
+class RoutePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: "自定义Flutter界面",
+      home: Scaffold(
+        appBar: AppBar(title: Text("路由 route"),),
+        body: Center(
+          child: Text("自定义Flutter界面"),
+        ),
+      ),
+    );
+  }
+}
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -23,6 +58,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
